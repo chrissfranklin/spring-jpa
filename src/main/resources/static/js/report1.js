@@ -20,7 +20,7 @@ async function fetchReport1Preferences()
     var reportName = "report1";
 
     //var url = "/select/{userId}/{practiceId}/{reportName}";
-    var url = "/api/preference/" + userId + "/" + practiceId + "/" + reportName;
+    var url = "/api/preference/fetch/" + userId + "/" + practiceId + "/" + reportName;
     console.log("fetchReport1Preferences() - url: " + url);
     let dataIn;
     var myHeaders = new Headers();

@@ -15,11 +15,7 @@ async function fetchPreference()
   console.log("top of fetchPreference()...");
   setMyView("preferenceDetail");
   // set local variables
-  //var xLicense = localStorage.getItem("xLicense");
-  //var parentCustomerNumber = localStorage.getItem("parentCustomerNumber");
-  //var url = "/api/specialty/" + parentCustomerNumber;
-
-  var url = "/api/preference/all";
+  var url = "/api/preference/fetch/all";
   console.log("fetchPreference() - url: " + url);
   let dataIn;
   var myHeaders = new Headers();
