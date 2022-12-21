@@ -1,13 +1,12 @@
 package com.msh.lynx.analytics.rest.preference.controller;
 
 import com.msh.lynx.analytics.rest.preference.service.PreferenceService;
-import lombok.AllArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
+import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @CrossOrigin
@@ -19,9 +18,10 @@ public class PreferenceController
   @Autowired
   PreferenceService preferenceService;
 
+  // FETCH
   @RequestMapping(value =
   {
-    "/{userId}/{practiceId}/{reportName}"
+    "/fetch/{userId}/{practiceId}/{reportName}"
   }, method = RequestMethod.GET)
   public ResponseEntity<String> getAllPreferences
   (
@@ -32,14 +32,13 @@ public class PreferenceController
   )
   {
     log.trace("calling PreferenceService.findAllPreferenceByUserId()...");
-    //return this.preferenceService.findAllPreferenceByUserId(request, userId);
     return this.preferenceService.findByUserIdAndPracticeIdAndReportName(request, userId, practiceId, reportName);
   }
 
 
   @RequestMapping(value =
   {
-    "/all"
+    "/fetch/all"
   }, method = RequestMethod.GET)
   public ResponseEntity<String> getAll
   (
@@ -51,7 +50,7 @@ public class PreferenceController
   }
 
 
-  //  INSERT/SAVE
+  // SAVE
   @RequestMapping(value =
   {
     "/save/{userId}/{practiceId}/{reportName}/{preferenceName}/{preferenceValue}"
@@ -68,7 +67,5 @@ public class PreferenceController
   {
     return this.preferenceService.savePreference(request, userId, practiceId, reportName, preferenceName, preferenceValue);
   }
-
-
 
 }

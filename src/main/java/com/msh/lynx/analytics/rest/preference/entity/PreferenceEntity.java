@@ -1,8 +1,7 @@
 package com.msh.lynx.analytics.rest.preference.entity;
 
-import lombok.*;
-
 import javax.persistence.*;
+import lombok.*;
 
 @Entity
 @Data
@@ -14,18 +13,9 @@ import javax.persistence.*;
 public class PreferenceEntity implements java.io.Serializable
 {
   @javax.persistence.Id
-  //@GeneratedValue(strategy = GenerationType.AUTO)
-  //@GeneratedValue(strategy = GenerationType.SEQUENCE)
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
   private Long id;
-
-  //@Id
-  //@JsonIgnore
-  //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "preference_generator")
-  //@GeneratedValue(strategy = GenerationType.IDENTITY, generator = "preference_generator")
-  //@Column(name="preference_id", unique = true, nullable = false)
-  //private long preferenceId;
 
   @Column(name="user_id")
   private int userId;
@@ -51,16 +41,5 @@ public class PreferenceEntity implements java.io.Serializable
   {
     this.id = id;
   }
-
-
-  //@OneToMany(mappedBy = "preference1")
-  //private Set<PreferenceItemEntity> item1
-
-  //public PreferenceEntity(long userId, long practiceId)
-  //{
-  //  this.userId     = userId;
-  //  this.practiceId = practiceId;
-  //}
-
 
 }

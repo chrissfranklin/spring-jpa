@@ -4,6 +4,8 @@ import com.msh.lynx.analytics.common.service.BaseService;
 import com.msh.lynx.analytics.rest.preference.entity.PreferenceEntity;
 import com.msh.lynx.analytics.rest.preference.repository.PreferenceRepository;
 import com.msh.lynx.analytics.util.MyTimer;
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 
 @Service
 @PropertySource("classpath:application.properties")
