@@ -14,7 +14,9 @@ import javax.persistence.*;
 public class PreferenceEntity implements java.io.Serializable
 {
   @javax.persistence.Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
+  //@GeneratedValue(strategy = GenerationType.AUTO)
+  //@GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "id", nullable = false)
   private Long id;
 
@@ -26,10 +28,10 @@ public class PreferenceEntity implements java.io.Serializable
   //private long preferenceId;
 
   @Column(name="user_id")
-  private long userId;
+  private int userId;
 
   @Column(name="practice_id")
-  private long practiceId;
+  private int practiceId;
 
   @Column(name="report_name")
   private String reportName;

@@ -43,6 +43,23 @@ public class PreferenceClientController
   }
 
 
+  // report1.html - report1 page
+  @RequestMapping(value="/report1")
+  public String report1(Model model)
+    throws Exception
+  {
+    return "report1";
+  }
+
+  // report1.html - report2 page
+  @RequestMapping(value="/report2")
+  public String report2(Model model)
+    throws Exception
+  {
+    return "report2";
+  }
+
+
   // list.html - show list of all permissionIds fetched from db via ajax call
   @RequestMapping(value="/list")
   public String list(Model model)

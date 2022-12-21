@@ -21,7 +21,7 @@ public class PreferenceController
 
   @RequestMapping(value =
   {
-    "/select/{userId}/{practiceId}/{reportName}"
+    "/{userId}/{practiceId}/{reportName}"
   }, method = RequestMethod.GET)
   public ResponseEntity<String> getAllPreferences
   (
@@ -32,9 +32,9 @@ public class PreferenceController
   )
   {
     log.trace("calling PreferenceService.findAllPreferenceByUserId()...");
-    return this.preferenceService.findAllPreferenceByUserId(request, userId);
+    //return this.preferenceService.findAllPreferenceByUserId(request, userId);
+    return this.preferenceService.findByUserIdAndPracticeIdAndReportName(request, userId, practiceId, reportName);
   }
-
 
 
   @RequestMapping(value =
@@ -49,5 +49,26 @@ public class PreferenceController
     log.trace("calling preferenceService.findAll()...");
     return this.preferenceService.findAll(request);
   }
+
+
+  //  INSERT/SAVE
+  @RequestMapping(value =
+  {
+    "/save/{userId}/{practiceId}/{reportName}/{preferenceName}/{preferenceValue}"
+  }, method = RequestMethod.GET)
+  public ResponseEntity<String> savePreference
+  (
+    HttpServletRequest request,
+    @PathVariable("userId")          int userId,
+    @PathVariable("practiceId")      int practiceId,
+    @PathVariable("reportName")      String reportName,
+    @PathVariable("preferenceName")  String preferenceName,
+    @PathVariable("preferenceValue") String preferenceValue
+  )
+  {
+    return this.preferenceService.savePreference(request, userId, practiceId, reportName, preferenceName, preferenceValue);
+  }
+
+
 
 }
