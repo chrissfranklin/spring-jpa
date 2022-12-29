@@ -35,20 +35,26 @@ async function fetchPreference()
   output += "<td>id</td>";
   output += "<td>userId</td>";
   output += "<td>practiceId</td>";
-  output += "<td>reportName</td>";
   output += "<td>preferenceName</td>";
-  output += "<td>preferenceValue</td>";
+  output += "<td>id</td>";
+  output += "<td>reportName</td>";
+  output += "<td>itemName</td>";
+  output += "<td>itemValue</td>";
   output += "</tr>";
 
   preferencePageData.forEach(function(preferenceObject) {
-    output += "<tr>";
-    output += "<td>" + preferenceObject.id              + "</td>";
-    output += "<td>" + preferenceObject.userId          + "</td>";
-    output += "<td>" + preferenceObject.practiceId      + "</td>";
-    output += "<td>" + preferenceObject.reportName      + "</td>";
-    output += "<td>" + preferenceObject.preferenceName  + "</td>";
-    output += "<td>" + preferenceObject.preferenceValue + "</td>";
-    output += "</tr>";
+    preferenceObject.preferenceItemEntityList.forEach(function (preferenceItemObject) {
+      output += "<tr>";
+      output += "<td>" + preferenceObject.id              + "</td>";
+      output += "<td>" + preferenceObject.userId          + "</td>";
+      output += "<td>" + preferenceObject.practiceId      + "</td>";
+      output += "<td>" + preferenceObject.preferenceName  + "</td>";
+      output += "<td>" + preferenceItemObject.id          + "</td>";
+      output += "<td>" + preferenceItemObject.reportName  + "</td>";
+      output += "<td>" + preferenceItemObject.itemName    + "</td>";
+      output += "<td>" + preferenceItemObject.itemValue   + "</td>";
+      output += "</tr>";
+    });
   });
   output += "</table>";
 

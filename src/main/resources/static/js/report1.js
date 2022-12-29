@@ -39,20 +39,25 @@ async function fetchReport1Preferences()
     output += "<td>id</td>";
     output += "<td>userId</td>";
     output += "<td>practiceId</td>";
-    output += "<td>reportName</td>";
     output += "<td>preferenceName</td>";
-    output += "<td>preferenceValue</td>";
+    output += "<td>id</td>";
+    output += "<td>reportName</td>";
+    output += "<td>itemName</td>";
+    output += "<td>itemValue</td>";
     output += "</tr>";
-
     report1PreferencesPageData.forEach(function(preferenceObject) {
+      preferenceObject.preferenceItemEntitySet.forEach(function (preferenceItemObject) {
         output += "<tr>";
         output += "<td>" + preferenceObject.id              + "</td>";
         output += "<td>" + preferenceObject.userId          + "</td>";
         output += "<td>" + preferenceObject.practiceId      + "</td>";
-        output += "<td>" + preferenceObject.reportName      + "</td>";
         output += "<td>" + preferenceObject.preferenceName  + "</td>";
-        output += "<td>" + preferenceObject.preferenceValue + "</td>";
+        output += "<td>" + preferenceItemObject.id          + "</td>";
+        output += "<td>" + preferenceItemObject.reportName  + "</td>";
+        output += "<td>" + preferenceItemObject.itemName    + "</td>";
+        output += "<td>" + preferenceItemObject.itemValue   + "</td>";
         output += "</tr>";
+      });
     });
     output += "</table>";
 
@@ -74,7 +79,7 @@ async function saveReport1Preferences(colorValue)
     var preferenceName  = "color";
     //var preferenceValue = "red";
     var preferenceValue = colorValue;
-    var url = "/api/preference/save/" + userId + "/" + practiceId + "/" + reportName + "/" + preferenceName + "/" + preferenceValue;
+    var url = "/api/preference/save/preference/" + userId + "/" + practiceId + "/" + reportName + "/" + preferenceName + "/" + preferenceValue;
     console.log("saveReport1Preferences() - url: " + url);
     //
     let dataIn;
